@@ -16,10 +16,11 @@ namespace signalRtc
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
-                    builder => builder.WithOrigins("http://localhost:4200", "https://localhost:4200")
+                    builder => builder
                     .AllowAnyMethod()
                     .AllowAnyHeader()
-                    .AllowCredentials());
+                    .AllowCredentials()
+                    .WithOrigins("http://localhost:4200", "https://localhost:4200"));
             });
 
             services.AddSignalR();
